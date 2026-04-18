@@ -16,10 +16,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { getProductById, getAllProducts, getImageUrl, getImageUrls, type Product } from "@/lib/products";
+import { useCompanyInfo } from "@/hooks/useCompanyInfo";
 
 export default function ProductDetailPage() {
   const params = useParams<{ id: string }>();
   const router = useRouter();
+  const { companyInfo } = useCompanyInfo();
   const [product, setProduct] = useState<Product | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -509,7 +511,7 @@ export default function ProductDetailPage() {
                 <span>Хүргэлтийн мэдээлэл:</span>
               </div>
               <div className="space-y-1.5">
-                <div>100,000 төгрөгөөс дээш үнийн дүнтэй барааны зариалга:</div>
+                <div>100,000 төгрөгөөс дээш үнийн дүнтэй барааны захиалга:</div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#1e0acf]">•</span>
                   <span>Улаанбаатар хот дотроо үнэгүй</span>

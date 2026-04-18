@@ -23,7 +23,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Information */}
           <ContactInfoSection />
-          <ContactMapSection />
+          {/* <ContactMapSection /> */}
         </div>
       </div>
     </main>

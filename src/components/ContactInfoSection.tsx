@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FaWeixin } from "react-icons/fa";
+import { IoShareSocial } from "react-icons/io5";
 import { useCompanyInfo } from "@/hooks/useCompanyInfo";
 
 export default function ContactInfoSection() {
@@ -80,7 +81,7 @@ export default function ContactInfoSection() {
       <div className="flex items-start gap-4 p-4 rounded-lg border border-gray-200">
         <div className="flex-shrink-0">
           <div className="w-6 h-6 flex items-center justify-center">
-            <span className="text-gray-600">📱</span>
+            <IoShareSocial className="w-6 h-6 text-gray-600" />
           </div>
         </div>
         <div>

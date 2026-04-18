@@ -55,7 +55,7 @@ export default function NewsPage() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {pageItems.map((post) => (
-            <Card key={post.id} className="overflow-hidden hover:border-[#8DC63F] transition-colors">
+            <Card key={post.id} className="overflow-hidden hover:border-[#1e0acf] transition-colors">
               {post.img && post.img.trim() !== '' ? (
                 <div className="relative h-[200px] w-full bg-gray-100">
                   <Image
@@ -88,7 +88,7 @@ export default function NewsPage() {
                 <div className="mt-4">
                   <Link
                     href={`/news/${post.id}`}
-                    className="text-sm font-medium text-[#8DC63F] hover:underline inline-flex items-center gap-1"
+                    className="text-sm font-medium text-[#1e0acf] hover:underline inline-flex items-center gap-1"
                   >
                     Дэлгэрэнгүй үзэх
                     <span>→</span>

@@ -43,9 +43,8 @@ export default function AboutContent() {
       <div className="mt-12">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Хамтрагч байгууллагууд</h2>
         {companyInfo.partnersImages?.length ? (
-          <div className="relative rounded-2xl p-[1px] overflow-hidden bg-gradient-to-r from-red-500 via-yellow-400 to-[#1e0acf]">
-            <div className="absolute inset-0 bg-gradient-to-r from-red-500 via-yellow-400 to-[#1e0acf] animate-[spin_12s_linear_infinite]" />
-            <div className="relative rounded-2xl bg-white border border-transparent px-4 py-3 md:px-6 md:py-4">
+          <div className="relative rounded-2xl border-2 border-black overflow-hidden">
+            <div className="relative rounded-2xl bg-white px-4 py-3 md:px-6 md:py-4">
               <Swiper
                 modules={[Autoplay]}
                 spaceBetween={16}

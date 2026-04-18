@@ -3,17 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { LucideIcon } from "lucide-react";
-import { Shield, LifeBuoy, Wrench, Package } from "lucide-react";
 import { getMainCategories, getAllProducts, type MainCategory } from "@/lib/products";
-
-// Icon mapping for Lucide icons
-const iconMap: Record<string, LucideIcon> = {
-  Shield,
-  LifeBuoy,
-  Wrench,
-  Package,
-};
 
 export default function TopCategories() {
   const [categories, setCategories] = useState<MainCategory[]>([]);
@@ -89,21 +79,13 @@ export default function TopCategories() {
           const ordered = [...rest, ...other];
           return ordered;
         })().map((c) => {
-          const IconComponent = c.icon ? iconMap[c.icon] : Shield;
-          const Icon = IconComponent || Shield;
-          
           return (
             <Link
               key={c.id}
               href={`/products?category=${encodeURIComponent(c.name)}`}
-              className="flex items-center justify-between rounded-lg border border-gray-200 px-3 py-2 hover:border-[#1e0acf] transition-colors cursor-pointer"
+              className="flex items-center rounded-lg border border-gray-200 px-3 py-2 hover:border-[#1e0acf] transition-colors cursor-pointer"
             >
-              <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#1e0acf]/10">
-                  <Icon className="h-4 w-4 text-[#1e0acf]" />
-                </div>
-                <span className="text-sm text-gray-700">{c.name}</span>
-              </div>
+              <span className="text-sm text-gray-700">{c.name}</span>
             </Link>
           );
         })}

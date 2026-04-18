@@ -14,6 +14,7 @@ export type CompanyInfo = {
   aboutImageUrl: string;
   partnersImages: string[];
   riimImages: string[];
+  deliveryInfo: string;
 };
 
 export const defaultCompanyInfo: CompanyInfo = {
@@ -29,6 +30,7 @@ export const defaultCompanyInfo: CompanyInfo = {
   aboutImageUrl: "",
   partnersImages: [],
   riimImages: [],
+  deliveryInfo: "",
 };
 
 function readStringField(data: Record<string, any>, keys: string[]): string {
@@ -199,6 +201,9 @@ export async function getCompanyInfo(): Promise<CompanyInfo> {
       riimImages:
         readStringArrayField(data, ["riim_images", "riimImages", "riim"]) ||
         defaultCompanyInfo.riimImages,
+      deliveryInfo:
+        readStringField(data, ["delivery_info", "deliveryInfo"]) ||
+        defaultCompanyInfo.deliveryInfo,
     };
   } catch {
     return defaultCompanyInfo;

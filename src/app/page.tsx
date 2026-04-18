@@ -39,9 +39,7 @@ export default function Home() {
       <section className="container mx-auto px-4 mt-10 md:mt-14">
         <Brands />
       </section>
-      <section className="container mx-auto px-4 mt-10 md:mt-14">
-        <ProductSectors variant="hex" />
-      </section>
+    
       <section className="container mx-auto px-4 mt-10 md:mt-14">
         <ProductTabsSlider />
       </section>

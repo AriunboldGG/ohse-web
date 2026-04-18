@@ -24,7 +24,7 @@ export default function CartPage() {
         {items.length === 0 ? (
           <div className="text-center py-16">
             <p className="text-gray-600 text-lg mb-4">Таны сагс хоосон байна</p>
-            <Button className="bg-[#8DC63F] hover:bg-[#7AB82E] cursor-pointer" asChild>
+            <Button className="bg-[#1e0acf] hover:bg-[#1608a6] cursor-pointer" asChild>
               <a href="/products">Бүтээгдэхүүн харах</a>
             </Button>
           </div>

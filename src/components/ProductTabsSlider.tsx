@@ -118,6 +118,15 @@ export default function ProductTabsSlider() {
   const [allProducts, setAllProducts] = useState<BackendProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Mongolian display labels for known tab types
+  const tabLabelMap: Record<string, string> = {
+    "BEST SELLER": "БЕСТСЕЛЛЕР",
+    "ШИНЭ (NEW)": "ШИНЭ",
+    "ХЯМДРАЛТАЙ (DISCOUNTED)": "ХЯМДРАЛТАЙ",
+    "ПРОМОУШН (PROMOTION)": "ПРОМОУШН",
+    "САНАЛ БОЛГОХ (RECOMMEND)": "САНАЛ БОЛГОХ",
+  };
+
   // Fetch products from backend
   useEffect(() => {
     async function fetchProducts() {
@@ -193,7 +202,7 @@ export default function ProductTabsSlider() {
                     value={tabValue}
                     className="rounded-full data-[state=active]:bg-[#1e0acf] data-[state=active]:text-white text-xs sm:text-sm px-3 py-1 sm:px-4 sm:py-2 cursor-pointer"
                   >
-                    {type}
+                    {tabLabelMap[type] ?? type}
                   </TabsTrigger>
                 );
               })}

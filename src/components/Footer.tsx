@@ -9,7 +9,7 @@ export default function Footer() {
   const { companyInfo } = useCompanyInfo();
   const mapSrc =
     companyInfo.mapEmbedUrl ||
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2675.1584418996117!2d106.88357267590312!3d47.89461856804502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d96930010cf9007%3A0xc7910f0df8d73ee!2sM1%20Tower!5e0!3m2!1sen!2smn!4v1768798097551!5m2!1sen!2smn";
+    "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2671.899058048615!2d106.82711900000001!3d47.957676000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDfCsDU3JzI3LjYiTiAxMDbCsDQ5JzM3LjYiRQ!5e0!3m2!1sen!2smn!4v1776498251071!5m2!1sen!2smn";
   return (
     <footer className="w-full border-t mt-8 md:mt-12 bg-[#F5F5F5]">
       <div className="container mx-auto px-4 py-10">

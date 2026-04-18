@@ -481,7 +481,7 @@ function ProductsPageContent() {
       base = base.filter((p) => {
         if (p.sale === true) return true;
         if (Array.isArray(p.productTypes)) {
-          return p.productTypes.some((type) => String(type).trim().toUpperCase() === "DISCOUNTED");
+          return p.productTypes.some((type) => String(type).trim().toUpperCase() === "Хямдралтай");
         }
         return false;
       });
@@ -670,7 +670,7 @@ function ProductsPageContent() {
             </div>
 
             {/* Product Sector filter */}
-            {(() => {
+            {/* {(() => {
               // Extract sectors from products (supports array and comma-separated string)
               let productSectors: string[] = [];
               
@@ -719,7 +719,7 @@ function ProductsPageContent() {
                   </div>
                 </div>
               );
-            })()}
+            })()} */}
 
             {/* Stock Status filter */}
             <div className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm">
@@ -809,7 +809,7 @@ function ProductsPageContent() {
                   href={`/products/${p.firestoreId || p.id}`}
                   className="absolute bottom-2 right-2 z-[2] opacity-0 group-hover:opacity-100 transition-opacity rounded-md bg-[#1e0acf] hover:bg-[#1608a6] text-white text-xs px-3 py-1.5 shadow-md"
                 >
-                  Харах
+                  Захиалах
                 </Link>
               </div>
               <CardContent className="p-3 md:p-4 flex flex-col overflow-visible flex-1">
@@ -1033,7 +1033,7 @@ function ProductsPageContent() {
               </div>
 
               {/* Product Sector filter */}
-              {(() => {
+              {/* {(() => {
                 // Extract sectors from products (supports array and comma-separated string)
                 let productSectors: string[] = [];
                 
@@ -1082,7 +1082,7 @@ function ProductsPageContent() {
                     </div>
                   </div>
                 );
-              })()}
+              })()} */}
 
               {/* Theme */}
               <div className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm">
