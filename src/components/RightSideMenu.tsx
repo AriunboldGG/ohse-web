@@ -1,4 +1,4 @@
- "use client";
+﻿ "use client";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -19,7 +19,7 @@ export default function RightSideMenu() {
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="md:hidden flex h-11 w-11 items-center justify-center rounded-full bg-white border border-gray-200 text-[#1f632b] shadow-sm transition-all duration-300 ease-out hover:border-[#1f632b] hover:shadow-lg"
+          className="md:hidden flex h-11 w-11 items-center justify-center rounded-full bg-white border border-gray-200 text-[#1e0acf] shadow-sm transition-all duration-300 ease-out hover:border-[#1e0acf] hover:shadow-lg"
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -34,10 +34,10 @@ export default function RightSideMenu() {
               title={label}
               onClick={() => setIsOpen(false)}
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white border border-gray-200 text-[#1f632b] shadow-sm transition-all duration-500 ease-out group-hover:border-[#1f632b] group-hover:shadow-lg group-hover:scale-105 group-hover:ring-2 group-hover:ring-[#1f632b]/30">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white border border-gray-200 text-[#1e0acf] shadow-sm transition-all duration-500 ease-out group-hover:border-[#1e0acf] group-hover:shadow-lg group-hover:scale-105 group-hover:ring-2 group-hover:ring-[#1e0acf]/30">
                 <Icon className="h-5 w-5" />
               </span>
-              <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-full bg-[#1f632b] px-3 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
+              <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-full bg-[#1e0acf] px-3 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
                 {label}
               </span>
             </Link>

@@ -106,10 +106,9 @@ export default function Footer() {
 
           {/* Customer */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-800 mb-4">ХАРИЛЦАГЧДАД ЗОРИУЛСАН</h4>
+            <h4 className="text-sm font-semibold text-gray-800 mb-4">Мэдээ  мэдээлэл</h4>
             <ul className="space-y-2 text-sm text-gray-600">
               <li><Link href="#">Policy</Link></li>
-              <li><Link href="#">Terms & Conditions</Link></li>
             </ul>
           </div>
         </div>

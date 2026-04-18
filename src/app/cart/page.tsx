@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
@@ -73,19 +73,19 @@ export default function CartPage() {
                           {item.price && item.priceNum > 0 && (
                             <div className="flex items-start gap-2">
                               <span className="font-bold text-gray-700 min-w-[100px]">Үнэ:</span>
-                              <span className="text-[#1f632b] font-semibold">{item.price} </span>
+                              <span className="text-[#1e0acf] font-semibold">{item.price} </span>
                             </div>
                           )}
                           {item.product_code && (
                             <div className="flex items-start gap-2">
                               <span className="font-bold text-gray-700 min-w-[100px]">Барааны код:</span>
-                              <span className="text-[#1f632b] font-semibold">{item.product_code}</span>
+                              <span className="text-[#1e0acf] font-semibold">{item.product_code}</span>
                             </div>
                           )}
                           {item.modelNumber && (
                             <div className="flex items-start gap-2">
                               <span className="font-bold text-gray-700 min-w-[100px]">Модел дугаар:</span>
-                              <span className="text-[#1f632b] font-semibold">{item.modelNumber}</span>
+                              <span className="text-[#1e0acf] font-semibold">{item.modelNumber}</span>
                             </div>
                           )}
                           {item.size && (
@@ -114,7 +114,7 @@ export default function CartPage() {
                           )}
                           <div className="flex items-start gap-2">
                             <span className="font-bold text-gray-700 min-w-[100px]">Нөөц:</span>
-                            <span className={(item.stock ?? 0) > 0 ? "text-green-600 font-semibold" : "text-orange-600 font-semibold"}>
+                            <span className={(item.stock ?? 0) > 0 ? "text-[#1e0acf] font-semibold" : "text-orange-600 font-semibold"}>
                               {(item.stock ?? 0) > 0 ? "Бэлэн байгаа" : "Захиалгаар"}
                             </span>
                           </div>

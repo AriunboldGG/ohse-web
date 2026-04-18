@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -111,7 +111,7 @@ export default function HeroSlider({ slides }: { slides?: Slide[] }) {
               {s.href && (
                 <div className="absolute bottom-4 left-4">
                   <Link href={s.href}>
-                    <Button className="bg-[#1f632b] hover:bg-[#16451e] text-white cursor-pointer">
+                    <Button className="bg-[#1e0acf] hover:bg-[#1608a6] text-white cursor-pointer">
                       {s.ctaLabel || "Дэлгэрэнгүй"}
                     </Button>
                   </Link>
@@ -131,7 +131,7 @@ export default function HeroSlider({ slides }: { slides?: Slide[] }) {
                 type="button"
                 onClick={() => api?.scrollTo(index)}
                 className={`h-2 w-2 rounded-full transition-colors ${
-                  index === activeIndex ? "bg-[#1f632b]" : "bg-white/80"
+                  index === activeIndex ? "bg-[#1e0acf]" : "bg-white/80"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

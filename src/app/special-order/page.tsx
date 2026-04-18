@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
@@ -96,7 +96,7 @@ export default function SpecialOrderPage() {
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-3 sm:px-4">
               <div className="w-full max-w-md rounded-2xl bg-white shadow-xl p-4 sm:p-6 md:p-8 text-center">
                 <div className="flex justify-center mb-4">
-                  <CheckCircle className="h-16 w-16 text-green-500" />
+                  <CheckCircle className="h-16 w-16 text-[#1e0acf]" />
                 </div>
                 <h2 className="text-xl font-semibold text-gray-900 mb-2">Амжилттай!</h2>
                 <p className="text-sm text-gray-600 mb-6">
@@ -104,7 +104,7 @@ export default function SpecialOrderPage() {
                 </p>
                 <Button
                   onClick={() => setShowSuccessModal(false)}
-                  className="w-full bg-[#1f632b] hover:bg-[#16451e] text-white cursor-pointer"
+                  className="w-full bg-[#1e0acf] hover:bg-[#1608a6] text-white cursor-pointer"
                 >
                   Хаах
                 </Button>
@@ -130,7 +130,7 @@ export default function SpecialOrderPage() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1f632b] focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e0acf] focus:border-transparent"
                       placeholder="Таны нэр"
                     />
                   </div>
@@ -146,7 +146,7 @@ export default function SpecialOrderPage() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1f632b] focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e0acf] focus:border-transparent"
                       placeholder="Таны имэйл хаяг"
                     />
                   </div>
@@ -164,7 +164,7 @@ export default function SpecialOrderPage() {
                       inputMode="numeric"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1f632b] focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e0acf] focus:border-transparent"
                       placeholder="Таны утасны дугаар"
                     />
                   </div>
@@ -179,7 +179,7 @@ export default function SpecialOrderPage() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1f632b] focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e0acf] focus:border-transparent"
                       placeholder="Байгууллагын нэр"
                     />
                   </div>
@@ -202,7 +202,7 @@ export default function SpecialOrderPage() {
                       required
                       value={formData.productName}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1f632b] focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e0acf] focus:border-transparent"
                       placeholder="Бүтээгдэхүүний нэр"
                     />
                   </div>
@@ -218,7 +218,7 @@ export default function SpecialOrderPage() {
                       rows={4}
                       value={formData.productDescription}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1f632b] focus:border-transparent resize-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e0acf] focus:border-transparent resize-none"
                       placeholder="Бүтээгдэхүүний дэлгэрэнгүй тайлбар..."
                     />
                   </div>
@@ -236,7 +236,7 @@ export default function SpecialOrderPage() {
                         min="1"
                         value={formData.quantity}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1f632b] focus:border-transparent"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e0acf] focus:border-transparent"
                         placeholder="Жишээ: 10, 50"
                       />
                     </div>
@@ -252,7 +252,7 @@ export default function SpecialOrderPage() {
                       rows={3}
                       value={formData.specifications}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1f632b] focus:border-transparent resize-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e0acf] focus:border-transparent resize-none"
                       placeholder="Техникийн шаардлага, хэмжээ, хэлбэр, өнгө гэх мэт..."
                     />
                   </div>
@@ -267,7 +267,7 @@ export default function SpecialOrderPage() {
                       rows={3}
                       value={formData.additionalInfo}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1f632b] focus:border-transparent resize-none"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e0acf] focus:border-transparent resize-none"
                       placeholder="Нэмэлт мэдээлэл, санал хүсэлт..."
                     />
                   </div>
@@ -284,7 +284,7 @@ export default function SpecialOrderPage() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full md:w-auto bg-[#1f632b] hover:bg-[#16451e] text-white font-semibold py-3 px-8 rounded-lg transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full md:w-auto bg-[#1e0acf] hover:bg-[#1608a6] text-white font-semibold py-3 px-8 rounded-lg transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Илгээж байна..." : "Илгээх"}
                 </Button>

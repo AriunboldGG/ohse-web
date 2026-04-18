@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Header from "@/components/Header";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
@@ -540,8 +540,8 @@ function ProductsPageContent() {
                 }}
                 className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs md:text-sm transition-colors ${
                   selectedCat === c.id
-                    ? "border-[#1f632b] bg-[#1f632b] text-white"
-                    : "border-gray-200 bg-white text-gray-700 hover:border-[#1f632b] hover:bg-[#1f632b]/10"
+                    ? "border-[#1e0acf] bg-[#1e0acf] text-white"
+                    : "border-gray-200 bg-white text-gray-700 hover:border-[#1e0acf] hover:bg-[#1e0acf]/10"
                 }`}
               >
                 {c.icon ? (
@@ -560,7 +560,7 @@ function ProductsPageContent() {
         <div className="mb-4 md:hidden">
           <button
             onClick={() => setShowMobileFilters(true)}
-            className="w-full rounded-lg border px-4 py-2 text-sm font-medium hover:bg-[#1f632b]/10 hover:text-[#1f632b] hover:border-[#1f632b] transition-colors"
+            className="w-full rounded-lg border px-4 py-2 text-sm font-medium hover:bg-[#1e0acf]/10 hover:text-[#1e0acf] hover:border-[#1e0acf] transition-colors"
           >
             Шүүлтүүрүүд
           </button>
@@ -584,7 +584,7 @@ function ProductsPageContent() {
                         setPage(1);
                       }}
                       className={`w-full text-left rounded-md px-2 py-2 text-sm transition-colors ${
-                        cat === selectedCategory ? "bg-[#1f632b]/10 text-[#1f632b]" : "hover:bg-[#1f632b]/10 hover:text-[#1f632b]"
+                        cat === selectedCategory ? "bg-[#1e0acf]/10 text-[#1e0acf]" : "hover:bg-[#1e0acf]/10 hover:text-[#1e0acf]"
                       }`}
                     >
                       {cat}
@@ -608,7 +608,7 @@ function ProductsPageContent() {
                         setPage(1);
                       }}
                       className={`w-full text-left rounded-md px-2 py-2 text-sm transition-colors ${
-                        sub === selectedSub ? "bg-[#1f632b]/10 text-[#1f632b]" : "hover:bg-[#1f632b]/10 hover:text-[#1f632b]"
+                        sub === selectedSub ? "bg-[#1e0acf]/10 text-[#1e0acf]" : "hover:bg-[#1e0acf]/10 hover:text-[#1e0acf]"
                       }`}
                     >
                       {sub}
@@ -780,7 +780,7 @@ function ProductsPageContent() {
                 setSelectedSale(false);
                 setPage(1);
               }}
-              className="w-full rounded-md border px-3 py-2 text-sm hover:bg-[#1f632b]/10 hover:text-[#1f632b] hover:border-[#1f632b] transition-colors"
+              className="w-full rounded-md border px-3 py-2 text-sm hover:bg-[#1e0acf]/10 hover:text-[#1e0acf] hover:border-[#1e0acf] transition-colors"
             >
               Шүүлтүүр цэвэрлэх
             </button>
@@ -795,7 +795,7 @@ function ProductsPageContent() {
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3 md:gap-4 lg:gap-6">
             {pageItems.map((p) => (
-            <Card key={p.firestoreId || `product-${p.id}`} className="group overflow-visible md:overflow-hidden lg:overflow-visible flex flex-col h-auto md:h-[80vh] lg:h-auto relative cursor-pointer hover:border-[#1f632b] hover:shadow-lg transition-all">
+            <Card key={p.firestoreId || `product-${p.id}`} className="group overflow-visible md:overflow-hidden lg:overflow-visible flex flex-col h-auto md:h-[80vh] lg:h-auto relative cursor-pointer hover:border-[#1e0acf] hover:shadow-lg transition-all">
               <Link href={`/products/${p.firestoreId || p.id}`} aria-label={`View ${p.name}`} className="absolute inset-0 z-[1]"></Link>
               <div className="relative w-full flex-shrink-0 h-[200px]" style={{ paddingTop: 0 }}>
                 <FirebaseImage
@@ -807,7 +807,7 @@ function ProductsPageContent() {
                 />
                 <Link
                   href={`/products/${p.firestoreId || p.id}`}
-                  className="absolute bottom-2 right-2 z-[2] opacity-0 group-hover:opacity-100 transition-opacity rounded-md bg-[#1f632b] hover:bg-[#16451e] text-white text-xs px-3 py-1.5 shadow-md"
+                  className="absolute bottom-2 right-2 z-[2] opacity-0 group-hover:opacity-100 transition-opacity rounded-md bg-[#1e0acf] hover:bg-[#1608a6] text-white text-xs px-3 py-1.5 shadow-md"
                 >
                   Харах
                 </Link>
@@ -826,17 +826,17 @@ function ProductsPageContent() {
                   {p.brand && (
                     <div className="mb-2 inline-flex flex-col rounded-lg bg-[#EAF5EB] px-3 py-2">
                       <div className="text-[10px] md:text-xs text-gray-500 font-medium mb-0.5">Брэнд</div>
-                      <div className="text-xs md:text-sm font-bold text-[#1f632b] leading-tight">{p.brand}</div>
+                      <div className="text-xs md:text-sm font-bold text-[#1e0acf] leading-tight">{p.brand}</div>
                     </div>
                   )}
                   <div className="mb-2">
                     <div className="text-[10px] md:text-xs text-gray-500 font-medium mb-0.5">Модел дугаар</div>
-                    <div className="text-xs md:text-sm font-bold text-[#1f632b] leading-tight">{p.modelNumber || "N/A"}</div>
+                    <div className="text-xs md:text-sm font-bold text-[#1e0acf] leading-tight">{p.modelNumber || "N/A"}</div>
                   </div>
                   {p.product_code && (
                     <div className="mb-2">
                       <div className="text-[10px] md:text-xs text-gray-500 font-medium mb-0.5">Барааны код</div>
-                      <div className="text-xs md:text-sm font-bold text-[#1f632b] leading-tight">{p.product_code}</div>
+                      <div className="text-xs md:text-sm font-bold text-[#1e0acf] leading-tight">{p.product_code}</div>
                     </div>
                   )}
                   <div className="space-y-1.5 md:space-y-2 text-xs md:text-sm overflow-visible flex-1">
@@ -909,7 +909,7 @@ function ProductsPageContent() {
                     )}
                     <div className="flex items-start gap-2">
                       <span className="font-semibold text-gray-700 min-w-[70px] md:min-w-[80px] flex-shrink-0">Нөөц:</span>
-                      <span className={`font-semibold ${p.stock > 0 ? "text-green-600" : "text-orange-600"}`}>
+                      <span className={`font-semibold ${p.stock > 0 ? "text-[#1e0acf]" : "text-orange-600"}`}>
                         {p.stock > 0 ? "Бэлэн байгаа" : "Захиалгаар"}
                       </span>
                     </div>
@@ -947,7 +947,7 @@ function ProductsPageContent() {
                           setPage(1);
                         }}
                         className={`w-full text-left rounded-md px-2 py-2 text-sm transition-colors ${
-                          cat === selectedCategory ? "bg-[#1f632b]/10 text-[#1f632b]" : "hover:bg-[#1f632b]/10 hover:text-[#1f632b]"
+                          cat === selectedCategory ? "bg-[#1e0acf]/10 text-[#1e0acf]" : "hover:bg-[#1e0acf]/10 hover:text-[#1e0acf]"
                         }`}
                       >
                         {cat}
@@ -971,7 +971,7 @@ function ProductsPageContent() {
                           setPage(1);
                         }}
                         className={`w-full text-left rounded-md px-2 py-2 text-sm transition-colors ${
-                          sub === selectedSub ? "bg-[#1f632b]/10 text-[#1f632b]" : "hover:bg-[#1f632b]/10 hover:text-[#1f632b]"
+                          sub === selectedSub ? "bg-[#1e0acf]/10 text-[#1e0acf]" : "hover:bg-[#1e0acf]/10 hover:text-[#1e0acf]"
                         }`}
                       >
                         {sub}
@@ -1168,19 +1168,19 @@ function ProductsPageContent() {
                 setSelectedSale(false);
                     setPage(1);
                   }}
-                  className="w-full rounded-md border px-4 py-2 text-sm hover:bg-[#1f632b]/10 hover:text-[#1f632b] hover:border-[#1f632b] transition-colors"
+                  className="w-full rounded-md border px-4 py-2 text-sm hover:bg-[#1e0acf]/10 hover:text-[#1e0acf] hover:border-[#1e0acf] transition-colors"
                 >
                   Цэвэрлэх
                 </button>
                 <button
                   onClick={() => setShowMobileFilters(false)}
-                  className="w-full rounded-md border px-4 py-2 text-sm hover:bg-[#1f632b]/10 hover:text-[#1f632b] hover:border-[#1f632b] transition-colors"
+                  className="w-full rounded-md border px-4 py-2 text-sm hover:bg-[#1e0acf]/10 hover:text-[#1e0acf] hover:border-[#1e0acf] transition-colors"
                 >
                   Хаах
                 </button>
                 <button
                   onClick={() => setShowMobileFilters(false)}
-                  className="w-full rounded-md bg-[#1f632b] hover:bg-[#16451e] px-4 py-2 text-sm font-semibold text-white transition-colors cursor-pointer"
+                  className="w-full rounded-md bg-[#1e0acf] hover:bg-[#1608a6] px-4 py-2 text-sm font-semibold text-white transition-colors cursor-pointer"
                 >
                   Хэрэглэх
                 </button>
@@ -1191,7 +1191,7 @@ function ProductsPageContent() {
 
         <div className="mt-8 flex items-center justify-center gap-2">
           <button
-            className="px-3 py-1 rounded-md border text-sm disabled:opacity-50 hover:bg-[#1f632b]/10 hover:text-[#1f632b] hover:border-[#1f632b] transition-colors"
+            className="px-3 py-1 rounded-md border text-sm disabled:opacity-50 hover:bg-[#1e0acf]/10 hover:text-[#1e0acf] hover:border-[#1e0acf] transition-colors"
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
           >
@@ -1201,7 +1201,7 @@ function ProductsPageContent() {
             {page} / {totalPages}
           </span>
           <button
-            className="px-3 py-1 rounded-md border text-sm disabled:opacity-50 hover:bg-[#1f632b]/10 hover:text-[#1f632b] hover:border-[#1f632b] transition-colors"
+            className="px-3 py-1 rounded-md border text-sm disabled:opacity-50 hover:bg-[#1e0acf]/10 hover:text-[#1e0acf] hover:border-[#1e0acf] transition-colors"
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={page === totalPages}
           >

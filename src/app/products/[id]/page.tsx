@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Header from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
@@ -345,9 +345,9 @@ export default function ProductDetailPage() {
       <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8">
         {/* Breadcrumb */}
         <nav className="mb-4 sm:mb-6 text-[10px] sm:text-xs text-gray-500 flex items-center gap-1 sm:gap-2 flex-wrap">
-          <Link href="/" className="hover:text-[#1f632b] cursor-pointer">Нүүр</Link>
+          <Link href="/" className="hover:text-[#1e0acf] cursor-pointer">Нүүр</Link>
           <span>/</span>
-          <Link href="/products" className="hover:text-[#1f632b] cursor-pointer">Бүтээгдэхүүн</Link>
+          <Link href="/products" className="hover:text-[#1e0acf] cursor-pointer">Бүтээгдэхүүн</Link>
           <span>/</span>
           <span className="truncate">{product.name}</span>
         </nav>
@@ -383,7 +383,7 @@ export default function ProductDetailPage() {
                       }}
                     />
                     <div
-                      className="absolute pointer-events-none border border-[#1f632b] bg-white/20 shadow-[0_0_0_9999px_rgba(0,0,0,0.02)]"
+                      className="absolute pointer-events-none border border-[#1e0acf] bg-white/20 shadow-[0_0_0_9999px_rgba(0,0,0,0.02)]"
                       style={{
                         left: `${lensPosition.x}px`,
                         top: `${lensPosition.y}px`,
@@ -469,7 +469,7 @@ export default function ProductDetailPage() {
                     onClick={() => setSelectedImageIndex(index)}
                     className={`relative w-full aspect-square rounded-lg border-2 overflow-hidden transition-all ${
                       selectedImageIndex === index
-                        ? "border-[#1f632b] ring-2 ring-[#1f632b]/20"
+                        ? "border-[#1e0acf] ring-2 ring-[#1e0acf]/20"
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                   >
@@ -503,7 +503,7 @@ export default function ProductDetailPage() {
 
 <div className="rounded-xl border bg-white p-4 text-sm text-gray-700">
               <div className="flex items-center gap-2 text-gray-900 font-semibold mb-2">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1f632b]/10 text-[#1f632b]">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1e0acf]/10 text-[#1e0acf]">
                   <Truck className="h-4 w-4" />
                 </span>
                 <span>Хүргэлтийн мэдээлэл:</span>
@@ -511,11 +511,11 @@ export default function ProductDetailPage() {
               <div className="space-y-1.5">
                 <div>100,000 төгрөгөөс дээш үнийн дүнтэй барааны зариалга:</div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#1f632b]">•</span>
+                  <span className="text-[#1e0acf]">•</span>
                   <span>Улаанбаатар хот дотроо үнэгүй</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-[#1f632b]">•</span>
+                  <span className="text-[#1e0acf]">•</span>
                   <span>Орон нутгийн унаанд явуулж өгнө</span>
                 </div>
               </div>
@@ -538,17 +538,17 @@ export default function ProductDetailPage() {
               {product.brand ? (
                 <div className="inline-flex flex-col rounded-lg bg-[#EAF5EB] px-3 py-2">
                   <div className="text-[10px] text-gray-500">Брэнд</div>
-                  <div className="text-sm font-semibold text-[#1f632b]">{product.brand}</div>
+                  <div className="text-sm font-semibold text-[#1e0acf]">{product.brand}</div>
                 </div>
               ) : null}
-              <div className="bg-[#1f632b]/10 px-3 py-1 rounded-md">
+              <div className="bg-[#1e0acf]/10 px-3 py-1 rounded-md">
                 <div className="text-[10px] text-gray-500">Модел дугаар</div>
-                <div className="text-sm font-semibold text-[#1f632b]">{product.modelNumber || "N/A"}</div>
+                <div className="text-sm font-semibold text-[#1e0acf]">{product.modelNumber || "N/A"}</div>
               </div>
               {product.product_code && (
-                <div className="bg-[#1f632b]/10 px-3 py-1 rounded-md">
+                <div className="bg-[#1e0acf]/10 px-3 py-1 rounded-md">
                   <div className="text-[10px] text-gray-500">Барааны код</div>
-                  <div className="text-sm font-semibold text-[#1f632b]">{product.product_code}</div>
+                  <div className="text-sm font-semibold text-[#1e0acf]">{product.product_code}</div>
                 </div>
               )}
             </div>
@@ -562,7 +562,7 @@ export default function ProductDetailPage() {
                       <span className="text-gray-400 line-through">{priceDisplay}</span>
                     </span>
                   ) : (
-                    <span className="text-[#1f632b] text-lg">{priceDisplay}</span>
+                    <span className="text-[#1e0acf] text-lg">{priceDisplay}</span>
                   )}
                 </div>
                 {product.manufacture_country ? (
@@ -588,7 +588,7 @@ export default function ProductDetailPage() {
               )}
               <div className="flex items-start gap-3">
                 <span className="text-sm font-bold text-gray-700 min-w-[80px]">Нөөц:</span>
-                <span className={`text-sm font-semibold ${product.stock > 0 ? "text-green-600" : "text-orange-600"}`}>
+                <span className={`text-sm font-semibold ${product.stock > 0 ? "text-[#1e0acf]" : "text-orange-600"}`}>
                   {product.stock > 0 ? "Бэлэн байгаа" : "Захиалгаар"}
                 </span>
               </div>
@@ -827,7 +827,7 @@ export default function ProductDetailPage() {
                   </div>
                   <div className="mt-1">
                     <div className="text-[10px] text-gray-500">Модел дугаар</div>
-                    <div className="text-xs font-semibold text-[#1f632b]">{rp.modelNumber || "N/A"}</div>
+                    <div className="text-xs font-semibold text-[#1e0acf]">{rp.modelNumber || "N/A"}</div>
                   </div>
                 </Link>
               ))}
@@ -895,7 +895,7 @@ function AddToCartButton(props: {
         </button>
       </div>
       <Button
-        className="bg-[#1f632b] hover:bg-[#16451e] cursor-pointer"
+        className="bg-[#1e0acf] hover:bg-[#1608a6] cursor-pointer"
         onClick={handleAddToCart}
       >
         Сагсанд нэмэх

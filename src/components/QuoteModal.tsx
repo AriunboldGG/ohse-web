@@ -78,7 +78,7 @@ export function QuoteModal({ open, onClose, items }: QuoteModalProps) {
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-3 sm:px-4">
         <div className="w-full max-w-md rounded-2xl bg-white shadow-xl p-4 sm:p-6 md:p-8 text-center">
           <div className="flex justify-center mb-4">
-            <CheckCircle className="h-16 w-16 text-green-500" />
+            <CheckCircle className="h-16 w-16 text-[#1e0acf]" />
           </div>
           <h2 className="text-xl font-semibold text-gray-900 mb-2">Амжилттай!</h2>
           <p className="text-sm text-gray-600 mb-6">

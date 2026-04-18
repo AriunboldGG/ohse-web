@@ -23,10 +23,6 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <Header />
-      {/* Brands at the top */}
-      <section className="container mx-auto px-4 mt-10 md:mt-14">
-        <Brands />
-      </section>
       {/* Search and Categories with Slider */}
       <section className="container mx-auto px-4 mt-10 md:mt-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
@@ -39,15 +35,17 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Brands under Slider */}
+      <section className="container mx-auto px-4 mt-10 md:mt-14">
+        <Brands />
+      </section>
       <section className="container mx-auto px-4 mt-10 md:mt-14">
         <ProductSectors variant="hex" />
       </section>
       <section className="container mx-auto px-4 mt-10 md:mt-14">
         <ProductTabsSlider />
       </section>
-      <section className="container mx-auto px-4 mt-10 md:mt-14">
-        <PromoBanner />
-      </section>
+   
       {/* <section className="container mx-auto px-4 mt-6 md:mt-8">
         <Suggestions />
       </section> */}

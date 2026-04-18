@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -19,13 +19,13 @@ export default function NavLink({ href, children, onClick }: NavLinkProps) {
       onClick={onClick}
       className={`group relative font-medium uppercase transition-colors ${
         isActive
-          ? "text-[#1f632b] hover:text-[#1f632b]"
-          : "text-gray-800 hover:text-[#1f632b]"
+          ? "text-[#1e0acf] hover:text-[#1e0acf]"
+          : "text-gray-800 hover:text-[#1e0acf]"
       }`}
     >
       {children}
       <span
-        className={`absolute left-1/2 -translate-x-1/2 -bottom-2 h-[3px] rounded-full bg-[#1f632b] shadow-[0_2px_6px_rgba(31,99,43,0.35)] transition-all duration-200 ${
+        className={`absolute left-1/2 -translate-x-1/2 -bottom-2 h-[3px] rounded-full bg-[#1e0acf] shadow-[0_2px_6px_rgba(31,99,43,0.35)] transition-all duration-200 ${
           isActive ? "w-full" : "w-0 group-hover:w-full"
         }`}
       />

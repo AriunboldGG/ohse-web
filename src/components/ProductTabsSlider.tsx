@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -42,7 +42,7 @@ function ProductsCarousel({ productsToShow }: { productsToShow: BackendProduct[]
           {productsToShow.map((p) => (
             <CarouselItem key={p.firestoreId || p.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
               <Link href={`/products/${p.firestoreId || p.id}`} className="block h-full">
-                <Card className="overflow-hidden hover:border-[#1f632b] transition-colors cursor-pointer h-full flex flex-col">
+                <Card className="overflow-hidden hover:border-[#1e0acf] transition-colors cursor-pointer h-full flex flex-col">
                   <CardContent className="p-4 flex flex-col gap-3 flex-1">
                     {/* Image */}
                     <div className="relative h-32 w-full">
@@ -77,13 +77,13 @@ function ProductsCarousel({ productsToShow }: { productsToShow: BackendProduct[]
                         <div className="text-xs text-gray-900 font-semibold line-clamp-2">{p.name}</div>
                       )}
                       {p.brand ? (
-                        <div className="text-[10px] text-[#1f632b] font-semibold line-clamp-1">Brand: {p.brand}</div>
+                        <div className="text-[10px] text-[#1e0acf] font-semibold line-clamp-1">Brand: {p.brand}</div>
                       ) : null}
                     </div>
                     {/* Model Number */}
                     <div>
                       <div className="text-[10px] text-gray-500 font-medium">Модел дугаар</div>
-                      <div className="text-xs font-bold text-[#1f632b]">{p.modelNumber || "N/A"}</div>
+                      <div className="text-xs font-bold text-[#1e0acf]">{p.modelNumber || "N/A"}</div>
                     </div>
                     {/* Price */}
                     <div className="mt-auto space-y-1">
@@ -191,7 +191,7 @@ export default function ProductTabsSlider() {
                   <TabsTrigger
                     key={type}
                     value={tabValue}
-                    className="rounded-full data-[state=active]:bg-[#1f632b] data-[state=active]:text-white text-xs sm:text-sm px-3 py-1 sm:px-4 sm:py-2 cursor-pointer"
+                    className="rounded-full data-[state=active]:bg-[#1e0acf] data-[state=active]:text-white text-xs sm:text-sm px-3 py-1 sm:px-4 sm:py-2 cursor-pointer"
                   >
                     {type}
                   </TabsTrigger>

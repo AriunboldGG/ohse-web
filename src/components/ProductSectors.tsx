@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useState, useEffect, useMemo } from "react";
@@ -172,7 +172,7 @@ export default function ProductSectors({
         <button
           type="button"
           onClick={() => setIsFloatingOpen((prev) => !prev)}
-          className="md:hidden h-12 w-12 rounded-full bg-[#1f632b] text-white text-lg font-semibold shadow-lg flex items-center justify-center"
+          className="md:hidden h-12 w-12 rounded-full bg-[#1e0acf] text-white text-lg font-semibold shadow-lg flex items-center justify-center"
           aria-label="Салбар"
         >
           ☰
@@ -193,10 +193,10 @@ export default function ProductSectors({
                   aria-label={sector.name}
                   onClick={() => setIsFloatingOpen(false)}
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white border border-gray-200 text-[#1f632b] shadow-sm transition-all group-hover:border-[#1f632b] group-hover:shadow-md">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white border border-gray-200 text-[#1e0acf] shadow-sm transition-all group-hover:border-[#1e0acf] group-hover:shadow-md">
                     <Icon className="h-6 w-6" />
                   </span>
-                  <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-full bg-[#1f632b] px-3 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
+                  <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-full bg-[#1e0acf] px-3 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
                     {sector.name}
                   </span>
                 </Link>
@@ -222,10 +222,10 @@ export default function ProductSectors({
                 className="group relative flex flex-col items-center gap-2 focus-visible:outline-none"
                 aria-label={sector.name}
               >
-                <div className="relative w-full aspect-[6/5] overflow-hidden border border-gray-200 shadow-sm transition-all duration-300 ease-out group-hover:border-[#1f632b] group-hover:shadow-lg group-focus-visible:border-[#1f632b] group-focus-visible:shadow-lg [clip-path:polygon(25%_6%,75%_6%,100%_50%,75%_94%,25%_94%,0%_50%)]">
-                  <div className="absolute inset-0 [clip-path:polygon(25%_6%,75%_6%,100%_50%,75%_94%,25%_94%,0%_50%)] bg-[conic-gradient(from_0deg,#1f632b,transparent_20%,#1f632b,transparent_55%,#1f632b)] animate-[spin_5s_linear_infinite] opacity-80" />
+                <div className="relative w-full aspect-[6/5] overflow-hidden border border-gray-200 shadow-sm transition-all duration-300 ease-out group-hover:border-[#1e0acf] group-hover:shadow-lg group-focus-visible:border-[#1e0acf] group-focus-visible:shadow-lg [clip-path:polygon(25%_6%,75%_6%,100%_50%,75%_94%,25%_94%,0%_50%)]">
+                  <div className="absolute inset-0 [clip-path:polygon(25%_6%,75%_6%,100%_50%,75%_94%,25%_94%,0%_50%)] bg-[conic-gradient(from_0deg,#1e0acf,transparent_20%,#1e0acf,transparent_55%,#1e0acf)] animate-[spin_5s_linear_infinite] opacity-80" />
                   <div className="absolute inset-[2px] [clip-path:polygon(25%_6%,75%_6%,100%_50%,75%_94%,25%_94%,0%_50%)] bg-white" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1f632b]/20 via-white to-[#1f632b]/10 transition-transform duration-300 ease-out group-hover:scale-105 group-focus-visible:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1e0acf]/20 via-white to-[#1e0acf]/10 transition-transform duration-300 ease-out group-hover:scale-105 group-focus-visible:scale-105" />
                   <div className="relative h-full w-full flex flex-col items-center justify-center gap-2 transition-transform duration-300 ease-out group-hover:scale-105 group-focus-visible:scale-105 z-10">
                     {sector.imageUrl ? (
                       <div className="absolute inset-0">
@@ -239,10 +239,10 @@ export default function ProductSectors({
                       </div>
                     ) : (
                       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 border border-gray-200 transition-transform duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110">
-                        <Icon className="h-6 w-6 text-[#1f632b]" />
+                        <Icon className="h-6 w-6 text-[#1e0acf]" />
                       </div>
                     )}
-                    <span className="absolute bottom-3 left-1/2 -translate-x-1/2 max-w-[80%] rounded-full bg-black/55 px-3 py-1 text-[11px] md:text-xs font-semibold text-white text-center leading-tight line-clamp-2 transition-colors duration-300 group-hover:bg-[#1f632b]/80 group-focus-visible:bg-[#1f632b]/80">
+                    <span className="absolute bottom-3 left-1/2 -translate-x-1/2 max-w-[80%] rounded-full bg-black/55 px-3 py-1 text-[11px] md:text-xs font-semibold text-white text-center leading-tight line-clamp-2 transition-colors duration-300 group-hover:bg-[#1e0acf]/80 group-focus-visible:bg-[#1e0acf]/80">
                       {sector.name}
                     </span>
                   </div>
@@ -268,10 +268,10 @@ export default function ProductSectors({
               className="group relative flex flex-col items-center"
               aria-label={sector.name}
             >
-              <div className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm transition-all group-hover:border-[#1f632b] group-hover:shadow-md">
-                <Icon className="h-6 w-6 md:h-7 md:w-7 text-[#1f632b]" />
+              <div className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm transition-all group-hover:border-[#1e0acf] group-hover:shadow-md">
+                <Icon className="h-6 w-6 md:h-7 md:w-7 text-[#1e0acf]" />
               </div>
-              <span className="pointer-events-none absolute -bottom-8 whitespace-nowrap rounded-full bg-[#1f632b] px-3 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
+              <span className="pointer-events-none absolute -bottom-8 whitespace-nowrap rounded-full bg-[#1e0acf] px-3 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
                 {sector.name}
               </span>
             </Link>

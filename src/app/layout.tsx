@@ -87,7 +87,7 @@ export default function RootLayout({
           </StockProvider>
         </CartProvider>
         <Footer />
-        <FacebookMessenger />
+        {/* <FacebookMessenger /> */}
       </body>
     </html>
   );

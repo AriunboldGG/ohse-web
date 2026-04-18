@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { FaWeixin } from "react-icons/fa";
+import { FaWeixin, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import NavLink from "./NavLink";
 import { useCart } from "@/context/CartContext";
 import { useCompanyInfo } from "@/hooks/useCompanyInfo";
@@ -23,17 +23,12 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <a
               href={companyInfo.facebookUrl || "#"}
-              className="flex items-center justify-center"
+              className="flex items-center justify-center text-[#1877F2]"
               target={companyInfo.facebookUrl ? "_blank" : undefined}
               rel={companyInfo.facebookUrl ? "noopener noreferrer" : undefined}
+              aria-label="Facebook"
             >
-              <Image 
-                src="/svg/fb-logo.svg" 
-                alt="Facebook" 
-                width={20} 
-                height={20}
-                className="w-5 h-5"
-              />
+              <FaFacebook className="w-5 h-5" />
             </a>
             {companyInfo.wechatUrl ? (
               <a
@@ -48,17 +43,12 @@ export default function Header() {
             ) : null}
             <a
               href={companyInfo.whatsappUrl || "#"}
-              className="flex items-center justify-center"
+              className="flex items-center justify-center text-[#25D366]"
               target={companyInfo.whatsappUrl ? "_blank" : undefined}
               rel={companyInfo.whatsappUrl ? "noopener noreferrer" : undefined}
+              aria-label="WhatsApp"
             >
-              <Image 
-                src="/svg/whatsupp-log.svg" 
-                alt="WhatsApp" 
-                width={20} 
-                height={20}
-                className="w-5 h-5"
-              />
+              <FaWhatsapp className="w-5 h-5" />
             </a>
           </div>
 
@@ -150,7 +140,7 @@ export default function Header() {
                   height={24}
                   className="w-6 h-6"
                 />
-                <span className="absolute -top-2 -right-2 bg-[#8DC63F] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 bg-[#1e0acf] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {count}
                 </span>
               </Link>

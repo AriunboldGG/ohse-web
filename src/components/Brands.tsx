@@ -1,13 +1,15 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { getAllProducts, type Product } from "@/lib/products";
 import FirebaseImage from "@/components/FirebaseImage";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 interface BrandItem {
   id: string;
@@ -20,14 +22,17 @@ export default function Brands() {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch products on mount
+  const plugin = useRef(
+    Autoplay({ delay: 2500, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
+
   useEffect(() => {
     async function fetchProducts() {
       setIsLoading(true);
       try {
         const products = await getAllProducts();
         setAllProducts(products);
-      } catch (error) {
+      } catch {
         setAllProducts([]);
       } finally {
         setIsLoading(false);
@@ -36,141 +41,94 @@ export default function Brands() {
     fetchProducts();
   }, []);
 
-  // Extract brands from products with counts and images
   const brands = useMemo(() => {
-    // Group products by brand
     const brandMap = new Map<string, Product[]>();
-    
+
     allProducts.forEach((product) => {
-      if (product.brand && typeof product.brand === 'string' && product.brand.trim() !== '') {
+      if (product.brand && typeof product.brand === "string" && product.brand.trim() !== "") {
         const brandName = product.brand.trim();
-        
-        if (!brandMap.has(brandName)) {
-          brandMap.set(brandName, []);
-        }
-        
+        if (!brandMap.has(brandName)) brandMap.set(brandName, []);
         brandMap.get(brandName)!.push(product);
       }
     });
 
-    // Convert to BrandItem array - get image from brandImage field or first product's image
-    const brandItems: BrandItem[] = Array.from(brandMap.entries()).map(([brandName, products]) => {
-      // Try to get brandImage from products (prefer brandImage field, fallback to first product image)
-      let brandImage = '';
-      
-      // First, try to find a product with brandImage field
-      const productWithBrandImage = products.find(p => p.brandImage && p.brandImage.trim() !== '');
-      if (productWithBrandImage && productWithBrandImage.brandImage) {
-        brandImage = productWithBrandImage.brandImage;
-      } else if (products.length > 0) {
-        // Fallback to first product's first image or main image
-        const firstProduct = products[0];
-        brandImage = (firstProduct.images && firstProduct.images.length > 0) 
-          ? firstProduct.images[0] 
-          : firstProduct.img || '';
+    const brandItems: BrandItem[] = Array.from(brandMap.entries()).map(
+      ([brandName, products]) => {
+        let brandImage = "";
+        const withBrandImg = products.find((p) => p.brandImage && p.brandImage.trim() !== "");
+        if (withBrandImg?.brandImage) {
+          brandImage = withBrandImg.brandImage;
+        } else if (products.length > 0) {
+          const first = products[0];
+          brandImage = first.images?.length ? first.images[0] : first.img || "";
+        }
+        return { id: brandName, title: brandName, image: brandImage, count: products.length };
       }
-      
-      return {
-        id: brandName,
-        title: brandName,
-        image: brandImage,
-        count: products.length,
-      };
-    });
+    );
 
-    // Sort alphabetically from A-Z (ascending), but keep "Бусад"/"Other" at the bottom
     brandItems.sort((a, b) => {
-      const aLower = a.title.toLowerCase();
-      const bLower = b.title.toLowerCase();
-      
-      // If a is "Бусад" or "Other", it should go to bottom
-      if (aLower === "бусад" || aLower === "other" || aLower.includes("бусад") || aLower.includes("other")) {
-        return 1;
-      }
-      // If b is "Бусад" or "Other", it should go to bottom
-      if (bLower === "бусад" || bLower === "other" || bLower.includes("бусад") || bLower.includes("other")) {
-        return -1;
-      }
-      // Otherwise, sort alphabetically
-      return a.title.localeCompare(b.title, 'mn', { sensitivity: 'base' });
+      const aL = a.title.toLowerCase();
+      const bL = b.title.toLowerCase();
+      if (aL.includes("бусад") || aL.includes("other")) return 1;
+      if (bL.includes("бусад") || bL.includes("other")) return -1;
+      return a.title.localeCompare(b.title, "mn", { sensitivity: "base" });
     });
 
-    // Filter out brands without images
-    return brandItems.filter(brand => brand.image && brand.image.trim() !== '');
+    return brandItems.filter((b) => b.image && b.image.trim() !== "");
   }, [allProducts]);
 
   if (isLoading) {
     return (
-      <Card className="rounded-xl shadow-sm">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        
-        </CardHeader>
-        <CardContent>
-          <div className="text-center py-8 text-gray-500">ачаалж байна...</div>
-        </CardContent>
-      </Card>
+      <div className="h-28 rounded-xl border border-gray-100 bg-white shadow-sm flex items-center justify-center text-sm text-gray-400">
+        ачаалж байна...
+      </div>
+    );
+  }
+
+  if (brands.length === 0) {
+    return (
+      <div className="h-28 rounded-xl border border-gray-100 bg-white shadow-sm flex items-center justify-center text-sm text-gray-400">
+        Брэнд олдсонгүй
+      </div>
     );
   }
 
   return (
-    <div className="relative rounded-xl p-[1px] overflow-hidden bg-gradient-to-r from-red-500 via-yellow-400 to-green-500">
-      <div className="absolute inset-0 bg-gradient-to-r from-red-500 via-yellow-400 to-green-500 animate-[spin_12s_linear_infinite]" />
-      <Card className="relative rounded-xl shadow-sm border border-transparent bg-white">
-      
-      <CardContent>
-        {brands.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">Брэнд олдсонгүй</div>
-        ) : (
-          <div className="relative">
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={16}
-              slidesPerView="auto"
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              loop={brands.length > 4}
-              breakpoints={{
-                640: {
-                  spaceBetween: 20,
-                },
-                768: {
-                  spaceBetween: 24,
-                },
-              }}
-              className="brands-swiper"
-            >
-              {brands.map((brand) => (
-                <SwiperSlide key={brand.id} style={{ width: 'auto' }}>
-                  <Link
-                    href={`/products?brand=${encodeURIComponent(brand.id)}`}
-                    className="block group"
-                  >
-                    <div className="relative h-20 md:h-24 w-32 md:w-40 rounded-lg overflow-hidden bg-white border border-gray-200 hover:border-[#1f632b] hover:shadow-md transition-all cursor-pointer">
-                      {brand.image ? (
-                        <FirebaseImage
-                          src={brand.image}
-                          alt={brand.title}
-                          fill
-                          className="object-contain p-2 md:p-3 group-hover:scale-105 transition-transform"
-                          sizes="(min-width: 768px) 160px, 128px"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
-                          <span className="text-xs text-gray-400">{brand.title}</span>
-                        </div>
-                      )}
-                    </div>
-                  </Link>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        )}
-      </CardContent>
-    </Card>
+    <div className="relative rounded-xl p-[1px] overflow-hidden bg-gradient-to-r from-red-500 via-yellow-400 to-[#1e0acf]">
+      <div className="rounded-xl bg-white px-4 py-4">
+        <Carousel
+          plugins={[plugin.current]}
+          opts={{ loop: true, align: "start" }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-3">
+            {brands.map((brand) => (
+              <CarouselItem
+                key={brand.id}
+                className="pl-3 basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 xl:basis-1/8"
+              >
+                <Link
+                  href={`/products?brand=${encodeURIComponent(brand.id)}`}
+                  className="block group"
+                >
+                  <div className="relative h-20 md:h-24 w-full rounded-lg overflow-hidden bg-white border border-gray-200 hover:border-[#1e0acf] hover:shadow-md transition-all cursor-pointer">
+                    <FirebaseImage
+                      src={brand.image}
+                      alt={brand.title}
+                      fill
+                      className="object-contain p-2 md:p-3 group-hover:scale-105 transition-transform"
+                      sizes="(min-width: 1280px) 120px, (min-width: 768px) 160px, 128px"
+                    />
+                  </div>
+                  <p className="mt-1 text-center text-[11px] text-gray-500 truncate group-hover:text-[#1e0acf] transition-colors">
+                    {brand.title}
+                  </p>
+                </Link>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
     </div>
   );
 }
