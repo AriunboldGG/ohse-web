@@ -174,7 +174,7 @@ export default function CartPage() {
                   {/* Send Quote Button */}
                   <Button
                     onClick={() => setShowQuote(true)}
-                    className="w-full bg-[#8DC63F] hover:bg-[#7AB82E] text-white cursor-pointer"
+                    className="w-full bg-[#1e0acf] hover:bg-[#1608a6] text-white cursor-pointer"
                   >
                     Үнийн санал авах
                   </Button>
