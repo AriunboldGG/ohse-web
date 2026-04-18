@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { AiOutlineSafety } from "react-icons/ai";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getMainCategories, getAllProducts, type MainCategory } from "@/lib/products";
 
@@ -85,6 +86,7 @@ export default function TopCategories() {
               href={`/products?category=${encodeURIComponent(c.name)}`}
               className="flex items-center rounded-lg border border-gray-200 px-3 py-2 hover:border-[#1e0acf] transition-colors cursor-pointer"
             >
+              <AiOutlineSafety className="mr-2 text-[#1e0acf] shrink-0" size={18} />
               <span className="text-sm text-gray-700">{c.name}</span>
             </Link>
           );
