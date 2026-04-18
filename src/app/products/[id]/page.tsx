@@ -510,17 +510,21 @@ export default function ProductDetailPage() {
                 </span>
                 <span>Хүргэлтийн мэдээлэл:</span>
               </div>
-              <div className="space-y-1.5">
-                <div>100,000 төгрөгөөс дээш үнийн дүнтэй барааны захиалга:</div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#1e0acf]">•</span>
-                  <span>Улаанбаатар хот дотроо үнэгүй</span>
+              {companyInfo?.deliveryInfo ? (
+                <p className="whitespace-pre-line">{companyInfo.deliveryInfo}</p>
+              ) : (
+                <div className="space-y-1.5">
+                  <div>100,000 төгрөгөөс дээш үнийн дүнтэй барааны захиалга:</div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#1e0acf]">•</span>
+                    <span>Улаанбаатар хот дотроо үнэгүй</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[#1e0acf]">•</span>
+                    <span>Орон нутгийн унаанд явуулж өгнө</span>
+                  </div>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#1e0acf]">•</span>
-                  <span>Орон нутгийн унаанд явуулж өгнө</span>
-                </div>
-              </div>
+              )}
             </div>
           </div>
 
