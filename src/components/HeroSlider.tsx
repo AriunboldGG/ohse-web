@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/carousel";
 import { useMemo, useState, useEffect } from "react";
 import { getAllNews, type NewsPost } from "@/lib/newsData";
+import { getMainCategories, type MainCategory } from "@/lib/products";
+import { AiOutlineSafety } from "react-icons/ai";
 import Autoplay from "embla-carousel-autoplay";
 
 interface Slide {
@@ -25,9 +27,25 @@ interface Slide {
 
 export default function HeroSlider({ slides }: { slides?: Slide[] }) {
   const [allNews, setAllNews] = useState<NewsPost[]>([]);
+  const [categories, setCategories] = useState<MainCategory[]>([]);
   const [api, setApi] = useState<CarouselApi | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [snapCount, setSnapCount] = useState(0);
+
+  // Fetch categories
+  useEffect(() => {
+    async function fetchCategories() {
+      try {
+        const cats = await getMainCategories();
+        const other = cats.filter((c) => c.name?.trim() === "Бусад");
+        const rest = cats.filter((c) => c.name?.trim() !== "Бусад");
+        setCategories([...rest, ...other]);
+      } catch {
+        setCategories([]);
+      }
+    }
+    fetchCategories();
+  }, []);
 
   // Fetch news from Firestore
   useEffect(() => {
@@ -79,66 +97,83 @@ export default function HeroSlider({ slides }: { slides?: Slide[] }) {
   }, [allNews]);
 
   const displaySlides = slides || newsSlides;
+
   return (
-    <div className="w-full h-full min-h-[400px] md:min-h-[500px]">
-      <Carousel
-        className="w-full h-full"
-        setApi={setApi}
-        opts={{ loop: true }}
-        plugins={[
-          Autoplay({ delay: 8000, stopOnInteraction: false }),
-        ]}
-      >
-        <CarouselContent>
-          {displaySlides.map((s) => (
-            <CarouselItem key={s.id}>
-              <div className="relative h-[400px] md:h-[500px] overflow-hidden rounded-xl border border-gray-200 group">
-              {s.image && s.image.trim() !== "" ? (
-                <Image
-                  src={s.image}
-                  alt={s.title}
-                  fill
-                  priority
-                  className="object-cover bg-white"
-                />
-              ) : (
-                <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-                  <span className="text-gray-400 text-sm">Зураг байхгүй</span>
+    <div className="w-full flex flex-col gap-3">
+      {/* Slider */}
+      <div className="relative w-full h-[600px] rounded-xl overflow-hidden">
+        <Carousel
+          className="w-full h-full"
+          setApi={setApi}
+          opts={{ loop: true }}
+          plugins={[Autoplay({ delay: 8000, stopOnInteraction: false })]}
+        >
+          <CarouselContent>
+            {displaySlides.map((s) => (
+              <CarouselItem key={s.id}>
+                <div className="relative h-[600px] overflow-hidden border border-gray-200 group">
+                  {s.image && s.image.trim() !== "" ? (
+                    <Image
+                      src={s.image}
+                      alt={s.title}
+                      fill
+                      priority
+                      className="object-fill bg-white"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+                      <span className="text-gray-400 text-sm">Зураг байхгүй</span>
+                    </div>
+                  )}
+                  {/* More Button */}
+                  {s.href && (
+                    <div className="absolute bottom-4 left-4 z-20">
+                      <Link href={s.href}>
+                        <Button className="bg-[#1e0acf] hover:bg-[#1608a6] text-white cursor-pointer">
+                          {s.ctaLabel || "Дэлгэрэнгүй"}
+                        </Button>
+                      </Link>
+                    </div>
+                  )}
                 </div>
-              )}
-              
-              {/* More Button */}
-              {s.href && (
-                <div className="absolute bottom-4 left-4">
-                  <Link href={s.href}>
-                    <Button className="bg-[#1e0acf] hover:bg-[#1608a6] text-white cursor-pointer">
-                      {s.ctaLabel || "Дэлгэрэнгүй"}
-                    </Button>
-                  </Link>
-                </div>
-              )}
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="left-2 cursor-pointer" />
-        <CarouselNext className="right-2 cursor-pointer" />
-        {displaySlides.length > 1 && (
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
-            {Array.from({ length: snapCount }).map((_, index) => (
-              <button
-                key={`hero-dot-${index}`}
-                type="button"
-                onClick={() => api?.scrollTo(index)}
-                className={`h-2 w-2 rounded-full transition-colors ${
-                  index === activeIndex ? "bg-[#1e0acf]" : "bg-white/80"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
+              </CarouselItem>
             ))}
-          </div>
-        )}
-      </Carousel>
+          </CarouselContent>
+          <CarouselPrevious className="left-2 cursor-pointer z-20" />
+          <CarouselNext className="right-2 cursor-pointer z-20" />
+          {displaySlides.length > 1 && (
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
+              {Array.from({ length: snapCount }).map((_, index) => (
+                <button
+                  key={`hero-dot-${index}`}
+                  type="button"
+                  onClick={() => api?.scrollTo(index)}
+                  className={`h-2 w-2 rounded-full transition-colors ${
+                    index === activeIndex ? "bg-[#1e0acf]" : "bg-white/80"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
+        </Carousel>
+      </div>
+
+      {/* Category cards — below the slider */}
+      {categories.length > 0 && (
+        <div className="flex flex-wrap justify-center gap-3">
+          {categories.map((cat) => (
+            <Link
+              key={cat.id}
+              href={`/products?category=${encodeURIComponent(cat.name)}`}
+              className="basis-[31%] flex flex-col items-center gap-2 px-3 py-5 rounded-xl bg-white border border-gray-200 text-[#1e0acf] hover:border-[#1e0acf] hover:shadow-md active:scale-95 transition-all text-center"
+            >
+              <AiOutlineSafety size={26} />
+              <span className="text-[18px] font-semibold leading-tight text-gray-800">{cat.name}</span>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

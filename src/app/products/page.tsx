@@ -572,7 +572,7 @@ function ProductsPageContent() {
             {/* Categories (category field) - shown when main category is selected */}
             {selectedCat !== "all" && productCategories[selectedCat] ? (
               <div className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm">
-                <div className="text-sm font-semibold text-gray-800 mb-2">Ангилал</div>
+                <div className="text-sm font-semibold text-gray-800 mb-2">Дэд ангилал</div>
                 <div className="space-y-2">
                   {productCategories[selectedCat]!.map((cat) => (
                     <button
@@ -597,7 +597,7 @@ function ProductsPageContent() {
             {/* Subcategories (subcategory field) - shown when a category is selected */}
             {selectedCat !== "all" && selectedCategory && subcats[selectedCat] && subcats[selectedCat]![selectedCategory] ? (
               <div className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm">
-                <div className="text-sm font-semibold text-gray-800 mb-2">Дэд ангилал</div>
+                <div className="text-sm font-semibold text-gray-800 mb-2">Нэгж ангилал</div>
                 <div className="space-y-2">
                   {subcats[selectedCat]![selectedCategory]!.map((sub) => (
                     <button
