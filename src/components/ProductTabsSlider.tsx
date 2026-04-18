@@ -122,9 +122,13 @@ export default function ProductTabsSlider() {
   const tabLabelMap: Record<string, string> = {
     "BEST SELLER": "БЕСТСЕЛЛЕР",
     "ШИНЭ (NEW)": "ШИНЭ",
+    "NEW": "ШИНЭ",
     "ХЯМДРАЛТАЙ (DISCOUNTED)": "ХЯМДРАЛТАЙ",
+    "DISCOUNTED": "ХЯМДРАЛТАЙ",
     "ПРОМОУШН (PROMOTION)": "ПРОМОУШН",
+    "PROMOTION": "ПРОМОУШН",
     "САНАЛ БОЛГОХ (RECOMMEND)": "САНАЛ БОЛГОХ",
+    "RECOMMEND": "САНАЛ БОЛГОХ",
   };
 
   // Fetch products from backend

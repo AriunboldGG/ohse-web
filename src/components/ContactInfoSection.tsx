@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { FaWeixin } from "react-icons/fa";
@@ -11,7 +11,7 @@ export default function ContactInfoSection() {
   return (
     <div className="space-y-6">
       {/* Email */}
-      <div className="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-[#8DC63F] transition-colors">
+      <div className="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-[#1e0acf] transition-colors">
         <div className="flex-shrink-0">
           <Image 
             src="/svg/email-logo.svg" 
@@ -25,7 +25,7 @@ export default function ContactInfoSection() {
           <h3 className="font-semibold text-gray-800 mb-1">Имэйл</h3>
           <a
             href={`mailto:${companyInfo.email}`}
-            className="text-[#8DC63F] hover:text-[#7AB82E] hover:underline transition-colors"
+            className="text-[#1e0acf] hover:text-[#1608a6] hover:underline transition-colors"
           >
             {companyInfo.email}
           </a>
@@ -33,7 +33,7 @@ export default function ContactInfoSection() {
       </div>
 
       {/* Phone */}
-      <div className="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-[#8DC63F] transition-colors">
+      <div className="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-[#1e0acf] transition-colors">
         <div className="flex-shrink-0">
           <Image 
             src="/svg/phone-logo.svg" 
@@ -47,7 +47,7 @@ export default function ContactInfoSection() {
           <h3 className="font-semibold text-gray-800 mb-1">Утас</h3>
           <a
             href={`tel:${companyInfo.phone}`}
-            className="text-[#8DC63F] hover:text-[#7AB82E] hover:underline transition-colors"
+            className="text-[#1e0acf] hover:text-[#1608a6] hover:underline transition-colors"
           >
             {companyInfo.phone}
           </a>
@@ -55,7 +55,7 @@ export default function ContactInfoSection() {
       </div>
 
       {companyInfo.mobilePhone ? (
-        <div className="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-[#8DC63F] transition-colors">
+        <div className="flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-[#1e0acf] transition-colors">
           <div className="flex-shrink-0">
             <Image 
               src="/svg/phone-logo.svg" 
@@ -69,7 +69,7 @@ export default function ContactInfoSection() {
             <h3 className="font-semibold text-gray-800 mb-1">Гар утас</h3>
             <a
               href={`tel:${companyInfo.mobilePhone}`}
-              className="text-[#8DC63F] hover:text-[#7AB82E] hover:underline transition-colors"
+              className="text-[#1e0acf] hover:text-[#1608a6] hover:underline transition-colors"
             >
               {companyInfo.mobilePhone}
             </a>
