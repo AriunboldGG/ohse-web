@@ -14,8 +14,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "БАЯН ӨНДӨР - Хамгаалах хувцас хэрэгсэл, багаж хэрэгсэл",
-    template: "%s | БАЯН ӨНДӨР",
+    default: "OHSE - Хамгаалах хувцас хэрэгсэл, багаж хэрэгсэл",
+    template: "%s | OHSE",
   },
   description: "ХАБЭА хамгаалах хувцас хэрэгсэл, аврах багаж хэрэгсэл, ажлын байрны тохилог орчны бүтээгдэхүүнийг чанартай, найдвартай байдлаар нийлүүлнэ.",
   icons: {
@@ -30,12 +30,12 @@ export const metadata: Metadata = {
     "аврах багаж хэрэгсэл",
     "ажлын байрны тохилог орчин",
     "аюулгүй байдал",
-    "БАЯН ӨНДӨР",
+    "OHSE",
   ],
-  authors: [{ name: "БАЯН ӨНДӨР" }],
-  creator: "БАЯН ӨНДӨР",
-  publisher: "БАЯН ӨНДӨР",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://bayan-undur.mn"),
+  authors: [{ name: "OHSE" }],
+  creator: "OHSE",
+  publisher: "OHSE",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ohse.mn"),
   alternates: {
     canonical: "/",
   },
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "mn_MN",
     url: "/",
-    siteName: "БАЯН ӨНДӨР",
-    title: "БАЯН ӨНДӨР - Хамгаалах хувцас хэрэгсэл, багаж хэрэгсэл",
+    siteName: "OHSE",
+    title: "OHSE - Хамгаалах хувцас хэрэгсэл, багаж хэрэгсэл",
     description: "ХАБЭА хамгаалах хувцас хэрэгсэл, аврах багаж хэрэгсэл, ажлын байрны тохилог орчны бүтээгдэхүнийг чанартай, найдвартай байдлаар нийлүүлнэ.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "БАЯН ӨНДӨР - Хамгаалах хувцас хэрэгсэл",
+    title: "OHSE - Хамгаалах хувцас хэрэгсэл",
     description: "ХАБЭА хамгаалах хувцас хэрэгсэл, аврах багаж хэрэгсэл нийлүүлнэ",
   },
   robots: {

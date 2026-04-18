@@ -122,7 +122,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3">
             <Image 
               src="/svg/main-logo.svg" 
-              alt="БАЯН ӨНДӨР" 
+              alt="OHSE" 
               width={224} 
               height={32}
               className="h-8 w-auto"

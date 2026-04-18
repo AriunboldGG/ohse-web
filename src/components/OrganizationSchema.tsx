@@ -5,19 +5,19 @@ import StructuredData from "./StructuredData";
  * Add this to your root layout or main pages
  */
 export default function OrganizationSchema() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bayan-undur.mn";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ohse.mn";
 
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "БАЯН ӨНДӨР",
+    name: "OHSE",
     url: baseUrl,
     logo: `${baseUrl}/svg/main-logo.svg`,
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+976-70118585",
       contactType: "customer service",
-      email: "info@bayan-undur.mn",
+      email: "info@ohse.mn",
       areaServed: "MN",
       availableLanguage: ["mn", "en"],
     },

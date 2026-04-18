@@ -80,7 +80,7 @@ export default function FacebookMessenger() {
       <div className="fixed bottom-4 right-4 z-50">
         <button
           onClick={() => {
-            window.open("mailto:info@bayan-undur.mn?subject=Асуулт", "_blank");
+            window.open("mailto:info@ohse.mn?subject=Асуулт", "_blank");
           }}
           className="bg-[#0084FF] hover:bg-[#0066CC] text-white rounded-full p-4 shadow-lg transition-all hover:scale-110 cursor-pointer flex items-center justify-center"
           aria-label="Холбогдох"

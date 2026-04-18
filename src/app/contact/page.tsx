@@ -5,10 +5,10 @@ import ContactMapSection from "@/components/ContactMapSection";
 
 export const metadata: Metadata = {
   title: "Холбоо барих",
-  description: "БАЯН ӨНДӨР компанитай холбогдох. Утас: 70118585, Имэйл: info@bayan-undur.mn. ХАБЭА хамгаалах хувцас хэрэгсэл, аврах багаж хэрэгсэл захиалга.",
+  description: "OHSE компанитай холбогдох. Утас: 70118585, Имэйл: info@ohse.mn. ХАБЭА хамгаалах хувцас хэрэгсэл, аврах багаж хэрэгсэл захиалга.",
   openGraph: {
-    title: "Холбоо барих | БАЯН ӨНДӨР",
-    description: "БАЯН ӨНДӨР компанитай холбогдох",
+    title: "Холбоо барих | OHSE",
+    description: "OHSE компанитай холбогдох",
     url: "/contact",
   },
 };

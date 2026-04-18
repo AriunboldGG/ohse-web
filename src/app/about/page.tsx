@@ -4,10 +4,10 @@ import AboutContent from "@/components/AboutContent";
 
 export const metadata: Metadata = {
   title: "Бидний тухай",
-  description: "БАЯН ӨНДӨР компанийн тухай мэдээлэл. ХАБЭА хамгаалах хувцас хэрэгсэл, аврах багаж хэрэгсэл нийлүүлэгч.",
+  description: "OHSE компанийн тухай мэдээлэл. ХАБЭА хамгаалах хувцас хэрэгсэл, аврах багаж хэрэгсэл нийлүүлэгч.",
   openGraph: {
-    title: "Бидний тухай | БАЯН ӨНДӨР",
-    description: "БАЯН ӨНДӨР компанийн тухай мэдээлэл",
+    title: "Бидний тухай | OHSE",
+    description: "OHSE компанийн тухай мэдээлэл",
     url: "/about",
   },
 };
