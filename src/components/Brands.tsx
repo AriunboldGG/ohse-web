@@ -1,8 +1,9 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState, useRef, Fragment } from "react";
-import { getAllProducts, type Product } from "@/lib/products";
+import { useEffect, useState, useRef, Fragment } from "react";
+import { db } from "@/lib/firebase";
+import { collection, getDocs } from "firebase/firestore";
 import FirebaseImage from "@/components/FirebaseImage";
 import Autoplay from "embla-carousel-autoplay";
 import {
@@ -16,11 +17,10 @@ interface BrandItem {
   id: string;
   title: string;
   image: string;
-  count: number;
 }
 
 export default function Brands() {
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [brands, setBrands] = useState<BrandItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const plugin = useRef(
@@ -28,55 +28,31 @@ export default function Brands() {
   );
 
   useEffect(() => {
-    async function fetchProducts() {
+    async function fetchBrands() {
       setIsLoading(true);
       try {
-        const products = await getAllProducts();
-        setAllProducts(products);
+        if (!db) return;
+        const snapshot = await getDocs(collection(db, "brands"));
+        const items: BrandItem[] = snapshot.docs
+          .map((doc) => {
+            const data = doc.data();
+            return {
+              id: doc.id,
+              title: data.name || "",
+              image: data.image || "",
+            };
+          })
+          .filter((b) => b.title && b.image);
+        items.sort((a, b) => a.title.localeCompare(b.title, "mn", { sensitivity: "base" }));
+        setBrands(items);
       } catch {
-        setAllProducts([]);
+        setBrands([]);
       } finally {
         setIsLoading(false);
       }
     }
-    fetchProducts();
+    fetchBrands();
   }, []);
-
-  const brands = useMemo(() => {
-    const brandMap = new Map<string, Product[]>();
-
-    allProducts.forEach((product) => {
-      if (product.brand && typeof product.brand === "string" && product.brand.trim() !== "") {
-        const brandName = product.brand.trim();
-        if (!brandMap.has(brandName)) brandMap.set(brandName, []);
-        brandMap.get(brandName)!.push(product);
-      }
-    });
-
-    const brandItems: BrandItem[] = Array.from(brandMap.entries()).map(
-      ([brandName, products]) => {
-        let brandImage = "";
-        const withBrandImg = products.find((p) => p.brandImage && p.brandImage.trim() !== "");
-        if (withBrandImg?.brandImage) {
-          brandImage = withBrandImg.brandImage;
-        } else if (products.length > 0) {
-          const first = products[0];
-          brandImage = first.images?.length ? first.images[0] : first.img || "";
-        }
-        return { id: brandName, title: brandName, image: brandImage, count: products.length };
-      }
-    );
-
-    brandItems.sort((a, b) => {
-      const aL = a.title.toLowerCase();
-      const bL = b.title.toLowerCase();
-      if (aL.includes("бусад") || aL.includes("other")) return 1;
-      if (bL.includes("бусад") || bL.includes("other")) return -1;
-      return a.title.localeCompare(b.title, "mn", { sensitivity: "base" });
-    });
-
-    return brandItems.filter((b) => b.image && b.image.trim() !== "");
-  }, [allProducts]);
 
   if (isLoading) {
     return (
@@ -106,7 +82,7 @@ export default function Brands() {
                 <Fragment key={brand.id}>
                   <CarouselItem className="pl-3 basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 xl:basis-1/8">
                     <Link
-                      href={`/products?brand=${encodeURIComponent(brand.id)}`}
+                      href={`/products?brand=${encodeURIComponent(brand.title)}`}
                       className="block group"
                     >
                       <div className="relative h-20 md:h-24 w-full rounded-lg overflow-hidden bg-white border border-gray-200 hover:border-[#1e0acf] hover:shadow-md transition-all cursor-pointer">
