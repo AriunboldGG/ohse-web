@@ -101,7 +101,7 @@ export default function HeroSlider({ slides }: { slides?: Slide[] }) {
   return (
     <div className="w-full flex flex-col gap-3">
       {/* Slider */}
-      <div className="relative w-full h-[600px] rounded-xl overflow-hidden">
+      <div className="relative w-full h-[400px] md:h-[600px] rounded-xl overflow-hidden">
         <Carousel
           className="w-full h-full"
           setApi={setApi}
@@ -111,7 +111,7 @@ export default function HeroSlider({ slides }: { slides?: Slide[] }) {
           <CarouselContent>
             {displaySlides.map((s) => (
               <CarouselItem key={s.id}>
-                <div className="relative h-[600px] overflow-hidden border border-gray-200 group">
+                <div className="relative h-[400px] md:h-[600px] overflow-hidden border border-gray-200 group">
                   {s.image && s.image.trim() !== "" ? (
                     <Image
                       src={s.image}
@@ -161,12 +161,12 @@ export default function HeroSlider({ slides }: { slides?: Slide[] }) {
 
       {/* Category cards — below the slider */}
       {categories.length > 0 && (
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
           {categories.map((cat) => (
             <Link
               key={cat.id}
               href={`/products?category=${encodeURIComponent(cat.name)}`}
-              className="basis-[31%] flex flex-col items-center gap-2 px-3 py-5 rounded-xl bg-white border border-gray-200 text-[#1e0acf] hover:border-[#1e0acf] hover:shadow-md active:scale-95 transition-all text-center"
+              className="flex flex-col items-center gap-2 px-3 py-5 rounded-xl bg-white border border-gray-200 text-[#1e0acf] hover:border-[#1e0acf] hover:shadow-md active:scale-95 transition-all text-center"
             >
               <AiOutlineSafety size={26} />
               <span className="text-[18px] font-semibold leading-tight text-gray-800">{cat.name}</span>
