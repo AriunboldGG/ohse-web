@@ -480,8 +480,9 @@ function ProductsPageContent() {
     if (selectedSale) {
       base = base.filter((p) => {
         if (p.sale === true) return true;
+        if (p.sale_price !== undefined && p.sale_price !== null && p.sale_price !== "") return true;
         if (Array.isArray(p.productTypes)) {
-          return p.productTypes.some((type) => String(type).trim().toUpperCase() === "Хямдралтай");
+          return p.productTypes.some((type) => String(type).trim().toUpperCase() === "DISCOUNTED");
         }
         return false;
       });
