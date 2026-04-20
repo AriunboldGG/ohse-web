@@ -3,11 +3,14 @@
 import FirebaseImage from "@/components/FirebaseImage";
 import { useCompanyInfo } from "@/hooks/useCompanyInfo";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
+import { useState } from "react";
 
 export default function AboutContent() {
   const { companyInfo } = useCompanyInfo();
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
   const description =
     companyInfo.aboutDescription ||
     "Манай компанийн тухай мэдээлэл тун удахгүй.";
@@ -40,6 +43,79 @@ export default function AboutContent() {
           )}
         </div>
       </div>
+      {/* Агуулах section */}
+      {companyInfo.riimImages?.length ? (
+        <div className="mt-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Агуулах</h2>
+          <div className="relative rounded-2xl border-2 border-black overflow-hidden">
+            <div className="relative rounded-2xl bg-white px-4 py-3 md:px-6 md:py-4">
+              <Swiper
+                modules={[Autoplay, Navigation]}
+                spaceBetween={16}
+                slidesPerView={1}
+                grabCursor
+                navigation
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                loop={companyInfo.riimImages.length > 1}
+                breakpoints={{
+                  640: { slidesPerView: 2, spaceBetween: 20 },
+                  1024: { slidesPerView: 3, spaceBetween: 24 },
+                }}
+              >
+                {companyInfo.riimImages.map((image, index) => (
+                  <SwiperSlide key={`${image}-${index}`}>
+                    <div
+                      className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-50 border border-gray-200 shadow-sm cursor-zoom-in"
+                      onClick={() => setZoomedImage(image)}
+                    >
+                      <FirebaseImage
+                        src={image}
+                        alt={`Агуулах ${index + 1}`}
+                        fill
+                        className="object-cover transition-transform duration-300 hover:scale-105"
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      {/* Lightbox */}
+      {zoomedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setZoomedImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white text-3xl font-bold leading-none hover:text-gray-300 transition-colors"
+            onClick={() => setZoomedImage(null)}
+            aria-label="Хаах"
+          >
+            &times;
+          </button>
+          <div
+            className="relative max-w-4xl w-full mx-4 aspect-[4/3]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <FirebaseImage
+              src={zoomedImage}
+              alt="Томруулсан зураг"
+              fill
+              className="object-contain rounded-xl"
+              sizes="100vw"
+            />
+          </div>
+        </div>
+      )}
+
       <div className="mt-12">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Хамтрагч байгууллагууд</h2>
         {companyInfo.partnersImages?.length ? (
