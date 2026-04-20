@@ -114,7 +114,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 border-t pt-6 flex items-center justify-between text-xs text-gray-500">
-          <div>© 2026 OHSE ХХК. Бүх эрх хуулиар хамгаалагдсан</div>
+          <div>© 2026 Сэйфти Фёрст ХХК. Бүх эрх хуулиар хамгаалагдсан</div>
           <div className="flex items-center gap-4">
             {/* <Image src="/svg/mastercard.svg" alt="Mastercard" width={36} height={22} />
             <Image src="/svg/visa.svg" alt="Visa" width={36} height={22} /> */}
